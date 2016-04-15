@@ -1,5 +1,6 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
+apply plugin: 'maven-publish'
 
 sourceCompatibility = 1.5
 version = '1.0'
@@ -33,7 +34,25 @@ test {
 uploadArchives {
     repositories {
        flatDir {
-           dirs 'repos'
+           dirs 'build/repos'
        }
+    }
+}
+
+publishing {
+    publications {
+        impl(MavenPublication) {
+            groupId 'com.synload.mySQLUserSystem'
+            artifactId 'MySQLUserSystem'
+            version '1.0'
+    
+            from components.java
+        }
+    }
+    repositories {
+        maven {
+            // change to point to your repo, e.g. http://my.org/repo
+            url "$buildDir/repo"
+        }
     }
 }
