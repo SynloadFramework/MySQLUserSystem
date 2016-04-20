@@ -43,7 +43,7 @@ publishing {
     publications {
         impl(MavenPublication) {
             groupId 'com.synload.mySQLUserSystem'
-            artifactId 'MySQLUserSystem'
+            artifactId 'mysqlusersystem'
             version '1.0'
     
             from components.java
