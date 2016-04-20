@@ -4,7 +4,7 @@ import com.synload.framework.forms.Form;
 import com.synload.framework.forms.Text;
 import com.synload.framework.handlers.Request;
 import com.synload.framework.ws.WSHandler;
-import com.synload.mySQLUserSystem.sql.User;
+import com.synload.mySQLUserSystem.model.User;
 
 public class UserSettingsForm {
     public static Form get(WSHandler user) {

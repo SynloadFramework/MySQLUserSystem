@@ -11,7 +11,7 @@ import com.synload.framework.elements.Failed;
 import com.synload.framework.elements.Success;
 import com.synload.framework.modules.annotations.Event;
 import com.synload.framework.modules.annotations.Event.Type;
-import com.synload.mySQLUserSystem.sql.User;
+import com.synload.mySQLUserSystem.model.User;
 
 public class LogoutHandler {
 	@Event(name = "Logout", description = "handle a user logout request", trigger = { "get", "logout" }, type = Type.WEBSOCKET)

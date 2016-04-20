@@ -15,7 +15,7 @@ import com.synload.framework.elements.Success;
 import com.synload.framework.modules.annotations.Event;
 import com.synload.framework.modules.annotations.Event.Type;
 import com.synload.mySQLUserSystem.Authentication;
-import com.synload.mySQLUserSystem.sql.User;
+import com.synload.mySQLUserSystem.model.User;
 
 public class LoginHandler {
 	@Event(name = "user login", description = "handle user logins", trigger = { "get", "login" }, type = Type.WEBSOCKET)

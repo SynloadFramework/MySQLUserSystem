@@ -1,4 +1,4 @@
-package com.synload.mySQLUserSystem.sql;
+package com.synload.mySQLUserSystem.model;
 
 import com.synload.framework.modules.annotations.sql.BigIntegerColumn;
 import com.synload.framework.modules.annotations.sql.HasOne;

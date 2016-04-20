@@ -8,7 +8,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 import com.synload.framework.ws.WSHandler;
-import com.synload.mySQLUserSystem.sql.User;
+import com.synload.mySQLUserSystem.model.User;
 
 public class Authentication {
     public static User login(WSHandler session, String username, String password) {

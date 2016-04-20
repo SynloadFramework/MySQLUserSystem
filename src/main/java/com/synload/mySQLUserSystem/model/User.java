@@ -1,4 +1,4 @@
-package com.synload.mySQLUserSystem.sql;
+package com.synload.mySQLUserSystem.model;
 
 import java.lang.reflect.InvocationTargetException;
 import java.security.MessageDigest;
