@@ -20,29 +20,7 @@ public class Authentication {
 			        return u;
 			    }
 			}
-		} catch (InstantiationException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IllegalArgumentException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (NoSuchMethodException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SecurityException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (InvocationTargetException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+		} catch (Exception e){
 			e.printStackTrace();
 		}
         return null;
@@ -55,29 +33,7 @@ public class Authentication {
 			        return u;
 			    }
 			}
-		} catch (InstantiationException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IllegalArgumentException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (NoSuchMethodException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SecurityException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (InvocationTargetException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
         return null;
@@ -87,27 +43,22 @@ public class Authentication {
             String email, List<String> flags, int admin) {
         boolean validEmail = false;
         try {
-            Pattern regex = Pattern.compile("[A-Z0-9._%+-]+@[A-Z0-9.-]+",
-                    Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE);
+            Pattern regex = Pattern.compile("[A-Z0-9._%+-]+@[A-Z0-9.-]+",Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE);
             Matcher regexMatcher = regex.matcher(email);
             validEmail = regexMatcher.matches();
         } catch (PatternSyntaxException ex) {
         }
-        if (!User.existsUser(username) && username.length() > 3
-                && password.length() > 3 && validEmail) {
+        if (!User.existsUser(username) && username.length() > 3 && password.length() > 3 && validEmail) {
             int longTime = (int) (System.currentTimeMillis() / 1000L);
             User u;
             try {
                 u = new User("username", username, "password", User.hashGenerator(password), "email",
                         email, "flags", flags.toString(), "admin", admin,
-                        "created_date", longTime);
+                        "created_date", longTime
+				);
                 try {
 					u._insert();
-				} catch (IllegalArgumentException e) {
-					e.printStackTrace();
-				} catch (IllegalAccessException e) {
-					e.printStackTrace();
-				} catch (SQLException e) {
+				} catch (Exception e) {
 					e.printStackTrace();
 				}
             } catch (NoSuchAlgorithmException e1) {
@@ -123,29 +74,7 @@ public class Authentication {
         User u=null;
 		try {
 			u = User.findUserSession(uuid, ip);
-		} catch (InstantiationException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IllegalArgumentException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (NoSuchMethodException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SecurityException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (InvocationTargetException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
         if (u != null) {
@@ -158,29 +87,7 @@ public class Authentication {
         User u=null;
 		try {
 			u = User.findUserSession(uuid, ip);
-		} catch (InstantiationException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IllegalArgumentException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (NoSuchMethodException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SecurityException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (InvocationTargetException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
         if (u != null) {

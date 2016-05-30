@@ -13,11 +13,7 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.synload.framework.SynloadFramework;
-import com.synload.framework.modules.annotations.sql.BigIntegerColumn;
-import com.synload.framework.modules.annotations.sql.BooleanColumn;
-import com.synload.framework.modules.annotations.sql.LongBlobColumn;
-import com.synload.framework.modules.annotations.sql.SQLTable;
-import com.synload.framework.modules.annotations.sql.StringColumn;
+import com.synload.framework.modules.annotations.sql.*;
 import com.synload.framework.sql.Model;
 
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "class")
@@ -37,6 +33,10 @@ public class User extends Model {
     @StringColumn(length = 128)
     public String email;
 
+    @JsonIgnore
+    @StringColumn(length = 128)
+    public String name;
+
     @LongBlobColumn()
     public String flags;
 
@@ -46,6 +46,10 @@ public class User extends Model {
     @JsonIgnore
     @StringColumn(length = 255)
     public String password;
+
+    @HasMany(of=Session.class, key="id")
+    @LongBlobColumn()
+    public String sessions;
     
     // public User(){}
     /*
@@ -145,6 +149,34 @@ public class User extends Model {
         String hashedPass = User.hashGenerator(Password);
         this._save("password", hashedPass);
         this.password = hashedPass;
+    }
+
+    public long getCreated_date() {
+        return created_date;
+    }
+
+    public void setCreated_date(long created_date) {
+        this.created_date = created_date;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setFlags(String flags) {
+        this.flags = flags;
+    }
+
+    public String getSessions() {
+        return sessions;
+    }
+
+    public void setSessions(String sessions) {
+        this.sessions = sessions;
     }
 
     public String getEmail() {

@@ -8,7 +8,7 @@ import com.synload.framework.sql.Model;
 
 @SQLTable(name = "Session Model", version = 1.0, description = "keeps login data")
 public class Session extends Model {
-    @BigIntegerColumn(length = 20)
+    @BigIntegerColumn(length = 20, AutoIncrement=true, Key=true)
     public long id;
 
     @StringColumn(length = 255)
@@ -17,9 +17,8 @@ public class Session extends Model {
     @StringColumn(length = 128)
     public String session;
 
-    @HasOne(key = "id", of = User.class)
+    @HasOne(key="id", of=User.class)
     @BigIntegerColumn(length = 20)
-    
     public long user;
 
 	public long getId() {

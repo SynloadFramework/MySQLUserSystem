@@ -4,7 +4,7 @@ import com.synload.framework.Log;
 import com.synload.framework.modules.ModuleClass;
 import com.synload.framework.modules.annotations.Module;
 
-@Module(author="Nathaniel Davidson", name="MySQLUserSystem", version="1.0")
+@Module(author="Nathaniel Davidson", depend = { "" }, log = Module.LogLevel.INFO, name="MySQLUserSystem", version="1.1")
 public class MySQLUserSystem extends ModuleClass {
 
 	@Override
