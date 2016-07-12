@@ -1,9 +1,6 @@
 package com.synload.mySQLUserSystem.model;
 
-import com.synload.framework.modules.annotations.sql.BigIntegerColumn;
-import com.synload.framework.modules.annotations.sql.HasOne;
-import com.synload.framework.modules.annotations.sql.SQLTable;
-import com.synload.framework.modules.annotations.sql.StringColumn;
+import com.synload.framework.sql.annotations.*;
 import com.synload.framework.sql.Model;
 
 @SQLTable(name = "Session Model", version = 1.0, description = "keeps login data")
